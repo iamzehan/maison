@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="navbar">
+    <nav class="navbar navbar-expand-lg custom_nav " style="background-color: rgba(0,0,0,0.6);">
+        <div class="container">
+            <a class="navbar-brand" href="#"><img src="{% static 'lib/images/maison.png' %}" alt=""></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav" aria-controls="mynav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+      
+        <div class="collapse navbar-collapse" id="mynav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item ">
+              <a class="nav-link active afterbefor" href="{% url 'home' %}">Home </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            
+            <li class="nav-item">
+                
+              </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+</section>
+
+<section class="">
+    <div class="registration" style="background: url({% static 'lib/images/regi.jpg' %});">
+       <div class="form">
+        <div class="container">
+            <div class="row justify-content-center">
+                
+               <div class="col-md-4">
+                
+                    <div class="custom_form login_form">
+                        <div class="col-md-12 text-center ">
+                            <div class="log_head">
+                              <h2><i class="fas fa-users"></i></h2>
+                            </div>
+                        </div>
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-input my-2">
+                                        {{form.email}}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-12">
+                                    <div class="form-input my-2">
+                                        {{form.password}}
+                                    </div>
+                                </div>
+                                
+                                
+                                <div class="col-md-12 my-2">
+                                    <div class="form-input">
+                                       <button type="submit" class=" btn-block submitBtn">Login</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 pt-2">
+                                    <small style="color: #fff;">
+                                      Already have an account? <a class="ml-2" href="{% url 'register' %}">Signup here</a>
+                                    </small>
+                                  </div>
+                                </div>
+                            </div>
+                        </form>
+                    
+                   </div>
+                    </div>
+            </div>
+        </div>
+       </div>
+    </div>
+</section>
+
+{% endblock %}
